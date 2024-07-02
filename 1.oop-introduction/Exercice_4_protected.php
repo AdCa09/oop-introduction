@@ -1,9 +1,9 @@
 <?php
 
 class Beverage {
-    public $color;
-    public $price;
-    public $temperature;
+    protected $color;
+    protected $price;
+    protected $temperature;
 
    
     public function __construct(string $color, float $price, string $temperature = 'cold') {
@@ -20,8 +20,8 @@ class Beverage {
 // TODO: Make class beer that extends from Beverage.
 class Beer extends Beverage {
     // TODO: Create the properties name (string) and alcoholPercentage (float).
-    public $name;
-    public $alcoholPercentage;
+    protected $name;
+    protected $alcoholPercentage;
 
     // TODO: Foresee a construct that's allows us to use all the properties from beverage and that sets the values for name and alcoholpercentage.
     public function __construct(string $name, float $alcoholPercentage, string $color = 'blond', float $price = 3.5, string $temperature = 'cold') {
@@ -42,6 +42,12 @@ class Beer extends Beverage {
     public function getBeerInfo(){
         return $this->beerInfo();
     }
+
+    //new method for print without error
+    public function changeColor(string $newColor){
+        $this->color = $newColor;
+
+    }
     
 }
 
@@ -56,14 +62,17 @@ echo "Alcohol percentage: " . number_format($duvel->getAlcoholPercentage(), 1) .
 
 // Try to get this error on the screen= Fatal error: Uncaught Error: Call to undefined method Beverage::getAlcoholPercentage()
 
-// $boisson = new beverage("sprite", 2);
+// $boisson = new Beverage("sprite", 2);
 
 // echo "Pourcentage d'alcool :" . $boisson->getAlcoholPercentage(). "%\n";
 // Ont essaye d'appeler une méthode sur une instance beverage qui ne la posséde pas, car cette méthode est définie dans la classe beer
 
 
-$duvel->color = 'light';
 
 echo $duvel->getInfo() . "\n";
 
 echo $duvel->getBeerInfo() . "\n";
+
+$duvel->changeColor('light');
+
+echo $duvel->getInfo() . "\n";

@@ -12,7 +12,7 @@ USE TYPEHINTING EVERYWHERE!
 */
 
 
-class beverage 
+class Beverage 
 {
     public $color;
     public $price;
@@ -38,7 +38,7 @@ class beverage
 }
 // TODO: Instantiate an object which represents cola. Make sure that the color is set to black, the price equals 2 euro and the temperature to cold automatically
 //  print the getInfo on the screen.
-$cola = new beverage("black", 2 , "cold");
+$cola = new Beverage("black", 2 , "cold");
 
 echo $cola->getInfo();
 

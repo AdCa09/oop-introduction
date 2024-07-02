@@ -1,9 +1,9 @@
 <?php
 
 class Beverage {
-    private $color;
-    private $price;
-    private $temperature;
+    public $color;
+    public $price;
+    public $temperature;
 
    
     public function __construct(string $color, float $price, string $temperature = 'cold') {
@@ -20,8 +20,8 @@ class Beverage {
 // TODO: Make class beer that extends from Beverage.
 class Beer extends Beverage {
     // TODO: Create the properties name (string) and alcoholPercentage (float).
-    private $name;
-    private $alcoholPercentage;
+    public $name;
+    public $alcoholPercentage;
 
     // TODO: Foresee a construct that's allows us to use all the properties from beverage and that sets the values for name and alcoholpercentage.
     public function __construct(string $name, float $alcoholPercentage, string $color = 'blond', float $price = 3.5, string $temperature = 'cold') {
@@ -34,6 +34,15 @@ class Beer extends Beverage {
     public function getAlcoholPercentage() {
         return $this->alcoholPercentage;
     }
+
+    private function beerInfo(){
+        return "Hi i'm {$this->name} and have an alcohol percentage of {$this->alcoholPercentage} % and I have a {$this->color} color.";
+    }
+
+    public function getBeerInfo(){
+        return $this->beerInfo();
+    }
+    
 }
 
 // TODO: Instantiate an object which represents Duvel. Make sure that the color is set to blond, the price equals 3.5 euro and the temperature to cold automatically.
@@ -47,5 +56,14 @@ echo "Alcohol percentage: " . number_format($duvel->getAlcoholPercentage(), 1) .
 
 // Try to get this error on the screen= Fatal error: Uncaught Error: Call to undefined method Beverage::getAlcoholPercentage()
 
+// $boisson = new Beverage("sprite", 2);
+
+// echo "Pourcentage d'alcool :" . $boisson->getAlcoholPercentage(). "%\n";
+// Ont essaye d'appeler une méthode sur une instance beverage qui ne la posséde pas, car cette méthode est définie dans la classe beer
 
 
+$duvel->color = 'light';
+
+echo $duvel->getInfo() . "\n";
+
+echo $duvel->getBeerInfo() . "\n";

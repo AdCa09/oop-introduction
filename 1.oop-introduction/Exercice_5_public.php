@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 
 
-class beverage 
+class Beverage 
 {
   
     
@@ -23,7 +23,7 @@ class beverage
 }
 
 
-$cola = new beverage("black", 2 , "cold");
+$cola = new Beverage("black", 2 , "cold");
 
 
 echo $cola->getInfo() .PHP_EOL;
